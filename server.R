@@ -9,15 +9,15 @@ library(shiny)
 
 shinyServer(function(input, output) {
 
-  output$distPlot <- renderPlot({
-
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2]
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
-
+  # reactive that generates a random value for the gauge
+  value = reactive({
+    input$update
+    round(runif(1,0,100),2)
   })
-
+  
+  # example use of the automatically generated render function
+  output$gauge1 <- renderC3Gauge({ 
+    # C3Gauge widget
+    C3Gauge(value())
+  })
 })

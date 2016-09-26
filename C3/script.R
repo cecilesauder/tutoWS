@@ -4,8 +4,8 @@ if (!require("jsonlite"))
 library(jsonlite)
 toJSON(list(data = 75))
 
-install.packages("htmlwidgets")
-install.packages("devtools")
+#install.packages("htmlwidgets")
+#install.packages("devtools")
 
 library("htmlwidgets")
 library("devtools")
@@ -26,6 +26,6 @@ library(C3)
 C3Gauge("hello, world")
 
 
-devtools::install()                                      
+install()                                      
 library(C3)
 C3Gauge(20)
